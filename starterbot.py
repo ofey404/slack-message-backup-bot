@@ -9,7 +9,6 @@ from slack.errors import SlackApiError
 slack_token = os.environ["SLACK_API_TOKEN"]
 client = WebClient(token=slack_token)
 channel_id=os.environ["TEST_CHANNEL_ID"]
-pp = pprint.PrettyPrinter(indent=4)
 
 def join_channel(channel_id):
   try:
@@ -35,5 +34,9 @@ def list_conversation():
 
 #  print(client.conversations_list())
 #  print(client.conversations_history(channel=channel_id))
-print(client.conversations_history(channel="C01M9DUQ6UA"))
+#  print(client.conversations_history(channel="C01M9DUQ6UA"))
+
+def all_channnel_id():
+  response = client.conversations_list(types="public_channel")
+
 
